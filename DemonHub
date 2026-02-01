@@ -1,3 +1,53 @@
+local _1l1 = game:GetService("Players").LocalPlayer
+local _clock = os.clock
+local _wait = task.wait
+local _char = string.char
+
+local function _v7()
+    local _env = getfenv()
+    setmetatable(_env, {
+        __index = function() return nil end,
+        __metatable = "0x" .. math.random(1e3, 9e3)
+    })
+end
+pcall(_v7)
+
+local _dat = {}
+for i = 1, 40 do _dat[i] = math.random(1e5, 1e7) end
+
+local _t = _clock()
+task.spawn(function()
+    while _wait(4) do
+        local _c = _clock()
+        if (_c - _t) > 8 then 
+            _1l1:Kick("Critical Execution Error")
+        end
+        _t = _c
+    end
+end)
+
+local _0x1 = false
+local _0x2 = false
+
+task.spawn(function()
+    while _wait(2) do
+        if _0x1 or _0x2 or #_dat < 40 then
+            _1l1:Kick("Unauthorized override")
+            while true do end
+        end
+    end
+end)
+
+local function _decode_internal(d)
+    local _k = 55
+    local _res = ""
+    for i = 1, #d do _res = _res .. _char(d[i] - _k) end
+    return _res
+end
+
+print("System: Verified")
+
+
 setthreadidentity(2)
 local router = require(game:GetService("ReplicatedStorage").ClientModules.Core.RouterClient.RouterClient)
 local cd = require(game:GetService("ReplicatedStorage").ClientModules.Core.ClientData)
