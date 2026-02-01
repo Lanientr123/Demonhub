@@ -47,7 +47,6 @@ end
 
 print("System: Verified")
 
-
 setthreadidentity(2)
 local router = require(game:GetService("ReplicatedStorage").ClientModules.Core.RouterClient.RouterClient)
 local cd = require(game:GetService("ReplicatedStorage").ClientModules.Core.ClientData)
